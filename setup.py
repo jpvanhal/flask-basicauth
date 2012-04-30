@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='flask-basicauth',
+    name='Flask-BasicAuth',
     version='0.1.0',
     url='https://github.com/jpvanhal/flask-basicauth',
     license='BSD',
