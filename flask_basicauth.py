@@ -26,7 +26,7 @@ class BasicAuth(object):
     A Flask extension for adding HTTP basic access authentication to the
     application.
 
-    :param app: a :class:`flask.Flask` instance. Defaults to `None`. If no
+    :param app: a :class:`~flask.Flask` instance. Defaults to `None`. If no
         application is provided on creation, then it can be provided later on
         via :meth:`init_app`.
     """
