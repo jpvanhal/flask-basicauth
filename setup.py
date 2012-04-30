@@ -1,11 +1,4 @@
-"""
-Flask-BasicAuth
----------------
-
-"""
-
 from setuptools import setup
-
 
 setup(
     name='flask-basicauth',
@@ -14,8 +7,9 @@ setup(
     license='BSD',
     author='Janne Vanhala',
     author_email='janne.vanhala@gmail.com',
-    description='',
-    long_description=__doc__,
+    description='HTTP basic access authentication for Flask.',
+    long_description=open('README.rst').read() + '\n\n' +
+                     open('CHANGES.rst').read(),
     py_modules=['flask_basicauth'],
     zip_safe=False,
     include_package_data=True,
