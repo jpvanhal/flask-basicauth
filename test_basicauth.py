@@ -7,6 +7,9 @@ from flask.ext.basicauth import BasicAuth
 
 class BasicAuthTestCase(unittest.TestCase):
 
+    def assertIn(self, value, container):
+        self.assertTrue(value in container)
+
     def setUp(self):
         app = Flask(__name__)
 
