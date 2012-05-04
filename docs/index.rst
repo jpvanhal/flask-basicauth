@@ -22,7 +22,7 @@ Usage
 Usage of Flask-BasicAuth is simple::
 
     from flask import Flask, render_template
-    from flask.ext.basic_auth import BasicAuth
+    from flask.ext.basicauth import BasicAuth
 
     app = Flask(__name__)
 
