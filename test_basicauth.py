@@ -91,6 +91,13 @@ class BasicAuthTestCase(unittest.TestCase):
             headers={'Authorization': 'Basic ' + auth})
         self.assertEqual(response.status_code, 200)
 
+    def test_responds_with_200_with_correct_credentials_containing_colon(self):
+        self.app.config['BASIC_AUTH_PASSWORD'] = 'matrix:'
+        auth = base64.encodestring("john:matrix:").strip('\r\n')
+        response = self.client.get('/protected',
+            headers={'Authorization': 'Basic ' + auth})
+        self.assertEqual(response.status_code, 200)
+
     def test_runs_decorated_view_after_authentication(self):
         auth = base64.encodestring("john:matrix").strip('\r\n')
         response = self.client.get('/protected',
