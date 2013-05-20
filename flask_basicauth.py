@@ -80,7 +80,7 @@ class BasicAuth(object):
         if 'Authorization' in request.headers:
             auth = request.headers['Authorization'].split()
             if len(auth) == 2 and auth[0].lower() == 'basic':
-                username, password = base64.decodestring(auth[1]).split(':')
+                username, password = base64.decodestring(auth[1]).split(':', 1)
                 if self.check_credentials(username, password):
                     return True
         return False
