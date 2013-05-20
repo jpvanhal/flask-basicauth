@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Flask-BasicAuth',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/jpvanhal/flask-basicauth',
     license='BSD',
     author='Janne Vanhala',

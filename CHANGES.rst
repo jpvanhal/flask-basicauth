@@ -4,7 +4,14 @@ Changelog
 Here you can see the full list of changes between each Flask-BasicAuth
 release.
 
-0.1.0 (2012-04-30)
-^^^^^^^^^^^^^^^^^^
+0.1.1 (May 20, 2013)
+^^^^^^^^^^^^^^^^^^^^
+
+- Fixed an issue where attempting to authenticate with password containing one
+  or more colons was failing with "too many values to unpack" error (Michael
+  Wallace).
+
+0.1.0 (April 30, 2012)
+^^^^^^^^^^^^^^^^^^^^^^
 
 - Initial public release
