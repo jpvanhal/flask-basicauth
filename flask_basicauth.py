@@ -6,7 +6,7 @@
     certain views or your whole application with HTTP basic access
     authentication.
 
-    :copyright: (c) 2012 Janne Vanhala.
+    :copyright: (c) 2013 Janne Vanhala.
     :license: BSD, see LICENSE for more details.
 """
 import base64
