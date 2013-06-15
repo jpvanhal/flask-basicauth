@@ -8,8 +8,10 @@ setup(
     author='Janne Vanhala',
     author_email='janne.vanhala@gmail.com',
     description='HTTP basic access authentication for Flask.',
-    long_description=open('README.rst').read() + '\n\n' +
-                     open('CHANGES.rst').read(),
+    long_description=(
+        open('README.rst').read() + '\n\n' +
+        open('CHANGES.rst').read()
+    ),
     py_modules=['flask_basicauth'],
     zip_safe=False,
     include_package_data=True,
