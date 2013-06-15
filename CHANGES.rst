@@ -4,6 +4,11 @@ Changelog
 Here you can see the full list of changes between each Flask-BasicAuth
 release.
 
+0.2.0 (June 15, 2013)
+^^^^^^^^^^^^^^^^^^^^^
+
+- Added Python 3 support.
+
 0.1.1 (May 20, 2013)
 ^^^^^^^^^^^^^^^^^^^^
 
