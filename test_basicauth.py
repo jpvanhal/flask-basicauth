@@ -31,6 +31,10 @@ class BasicAuthTestCase(unittest.TestCase):
         self.basic_auth = basic_auth
         self.client = app.test_client()
 
+    def make_headers(self, username, password):
+        auth = base64.b64encode(username + b':' + password)
+        return {'Authorization': b'Basic ' + auth}
+
     def test_sets_default_values_for_configuration(self):
         self.assertEqual(self.app.config['BASIC_AUTH_REALM'], '')
         self.assertEqual(self.app.config['BASIC_AUTH_FORCE'], False)
@@ -78,31 +82,35 @@ class BasicAuthTestCase(unittest.TestCase):
             )
 
     def test_responds_with_401_with_incorrect_credentials(self):
-        auth = base64.encodestring("john:rambo").strip('\r\n')
-        response = self.client.get('/protected',
-            headers={'Authorization': 'Basic ' + auth})
+        response = self.client.get(
+            '/protected',
+            headers=self.make_headers(b'john', b'rambo')
+        )
         self.assertEqual(response.status_code, 401)
 
     def test_responds_with_200_with_correct_credentials(self):
-        auth = base64.encodestring("john:matrix").strip('\r\n')
-        response = self.client.get('/protected',
-            headers={'Authorization': 'Basic ' + auth})
+        response = self.client.get(
+            '/protected',
+            headers=self.make_headers(b'john', b'matrix')
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_responds_with_200_with_correct_credentials_containing_colon(self):
         self.app.config['BASIC_AUTH_PASSWORD'] = 'matrix:'
-        auth = base64.encodestring("john:matrix:").strip('\r\n')
-        response = self.client.get('/protected',
-            headers={'Authorization': 'Basic ' + auth})
+        response = self.client.get(
+            '/protected',
+            headers=self.make_headers(b'john', b'matrix:')
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_runs_decorated_view_after_authentication(self):
-        auth = base64.encodestring("john:matrix").strip('\r\n')
-        response = self.client.get('/protected',
-            headers={'Authorization': 'Basic ' + auth})
+        response = self.client.get(
+            '/protected',
+            headers=self.make_headers(b'john', b'matrix')
+        )
         self.assertEqual(
             response.data,
-            'This view always requires authentication.'
+            b'This view always requires authentication.'
         )
 
 

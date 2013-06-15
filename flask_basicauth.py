@@ -74,13 +74,11 @@ class BasicAuth(object):
 
         :returns: `True` if the user is authorized, or `False` otherwise.
         """
-        if 'Authorization' in request.headers:
-            auth = request.headers['Authorization'].split()
-            if len(auth) == 2 and auth[0].lower() == 'basic':
-                username, password = base64.decodestring(auth[1]).split(':', 1)
-                if self.check_credentials(username, password):
-                    return True
-        return False
+        auth = request.authorization
+        return (
+            auth and auth.type == 'basic' and
+            self.check_credentials(auth.username, auth.password)
+        )
 
     def challenge(self):
         """
