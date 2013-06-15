@@ -1,8 +1,21 @@
+import os
+import re
+
 from setuptools import setup
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def get_version():
+    filename = os.path.join(HERE, 'flask_basicauth.py')
+    contents = open(filename).read()
+    pattern = r"^__version__ = '(.*?)'$"
+    return re.search(pattern, contents, re.MULTILINE).group(1)
+
 
 setup(
     name='Flask-BasicAuth',
-    version='0.1.1',
+    version=get_version(),
     url='https://github.com/jpvanhal/flask-basicauth',
     license='BSD',
     author='Janne Vanhala',

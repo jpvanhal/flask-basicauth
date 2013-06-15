@@ -14,11 +14,8 @@ from functools import wraps
 
 from flask import current_app, request, Response
 
-try:
-    __version__ = __import__('pkg_resources') \
-        .get_distribution('flask_basicauth').version
-except Exception:
-    __version__ = 'unknown'
+
+__version__ = '0.2.0'
 
 
 class BasicAuth(object):
