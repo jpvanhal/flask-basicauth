@@ -55,7 +55,7 @@ class BasicAuth(object):
         Check if the given username and password are correct.
 
         By default compares the given username and password to
-        ``HTTP_BASIC_AUTH_USERNAME`` and ``HTTP_BASIC_AUTH_PASSWORD``
+        ``BASIC_AUTH_USERNAME`` and ``BASIC_AUTH_PASSWORD``
         configuration variables.
 
         :param username: a username provided by the client
