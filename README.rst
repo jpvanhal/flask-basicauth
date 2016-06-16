@@ -19,7 +19,7 @@ authentication`_.
 Links
 -----
 
-- `Documentation <http://flask-basicauth.readthedocs.org/>`_
+- `Documentation <https://flask-basicauth.readthedocs.io/>`_
 - `Issue Tracker <http://github.com/jpvanhal/flask-basicauth/issues>`_
 - `Code <http://github.com/jpvanhal/flask-basicauth/>`_
 - `Development Version
